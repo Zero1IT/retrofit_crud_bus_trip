@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listBusFragment">
+
+    <fragment
+        android:id="@+id/listBusFragment"
+        android:name="com.example.service.views.ListBusFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/bus_list_fragment">
+
+        <action
+            android:id="@+id/toCreateBusFragment"
+            app:destination="@id/createBusFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createBusFragment"
+        android:name="com.example.service.views.CreateBusFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/create_bus_fragment">
+
+        <action
+            android:id="@+id/toListBusFragment"
+            app:destination="@id/listBusFragment" />
+        <argument
+            android:name="busTrip"
+            app:argType="com.example.service.beans.BusTrip"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+</navigation>
